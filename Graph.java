@@ -43,7 +43,7 @@ public class Graph {
   }
 
   public int degree(int node) {
-    if(node < 0 || node > this.countNodes -1)
+    if (node < 0 || node > this.countNodes - 1)
       System.err.println("Invalid node: " + node);
     int degree = 0;
     for (int j = 0; j < this.adjMatrix[node].length; ++j) {
