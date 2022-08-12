@@ -52,4 +52,36 @@ public class Graph {
     }
     return degree;
   }
+
+  public int highestDegree() {
+    int highest = 0;
+    for (int i = 0; i < this.adjMatrix.length; ++i) {
+      int degreeAux = this.degree(i);
+      if (highest < degreeAux)
+        highest = degreeAux;
+    }
+    return highest;
+  }
+
+  public int lowestDegree() {
+    int lowest = degree(0);
+    for (int i = 0; i < this.adjMatrix.length; ++i) {
+      int degreeAux = this.degree(i);
+      if (lowest > degreeAux)
+        lowest = degreeAux;
+    }
+    return lowest;
+  }// revisar função
+
+  public Graph complement() {
+    Graph g2 = new Graph(this.countNodes);
+    for (int i = 0; i < this.adjMatrix.length; ++i) {
+      for (int j = 0; j < this.adjMatrix[i].length; ++j) {
+        if (i != j && this.adjMatrix[i][j] == 0)
+          g2.addEdge(i, j, 1);
+      }
+    }
+    return g2;
+  }
+
 }
